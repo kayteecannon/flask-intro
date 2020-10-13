@@ -58,6 +58,14 @@ def say_hello():
             <option value="lovely">lovely</option>
           <input type="submit" value="Submit">
         </form>
+        <form action="/diss">
+          What's your name? <input type="text" name="person">
+          <select name="diss">
+            <option value="silly">silly</option>
+            <option value="weird">weird</option>
+            <option value="scary">scary</option>
+          <input type="submit" value="Submit">
+        </form>
       </body>
     </html>
     """
@@ -83,6 +91,24 @@ def greet_person():
     </html>
     """.format(player, compliment)
 
+@app.route('/diss')
+def diss_person():
+  
+  player = request.args.get("person")
+
+  diss = request.args.get("diss")
+  
+  return """
+    <!doctype html>
+    <html>
+      <head>
+        <title>A Diss</title>
+      </head>
+      <body>
+        Hi, {}! I think you're {}!
+      </body>
+    </html>
+    """.format(player, diss)
 
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads"
