@@ -69,7 +69,7 @@ def greet_person():
 
     player = request.args.get("person")
 
-    compliment = choice(AWESOMENESS)
+    compliment = request.args.get("compliments")
 
     return """
     <!doctype html>
